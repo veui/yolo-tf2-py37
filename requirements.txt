@@ -14,4 +14,4 @@ configparser~=5.2.0
 # scipy==1.7.3
 PyQt5==5.15.6
 tabulate==0.8.9
-ipykernel==6.8.0
+ipykernel==6.9.1
