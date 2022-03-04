@@ -121,8 +121,9 @@ def train(parser):
             cli_args.relative_labels or cli_args.xml_labels_folder
         ), 'No labels provided: specify --relative-labels or --xml-labels-folder'
     if cli_args.augmentation_preset:
+        preset = cli_args.augmentation_preset
         assert (
-            preset := cli_args.augmentation_preset
+            preset
         ) in AUGMENTATION_PRESETS, f'Invalid augmentation preset {preset}'
     trainer = Trainer(
         input_shape=cli_args.input_shape,
@@ -135,16 +136,20 @@ def train(parser):
         score_threshold=cli_args.score_threshold,
         image_folder=cli_args.image_folder,
     )
+
+    d_name = cli_args.dataset_name
+    preset = cli_args.augmentation_preset
+
     trainer.train(
         epochs=cli_args.epochs,
         batch_size=cli_args.batch_size,
         learning_rate=cli_args.learning_rate,
         new_dataset_conf={
-            'dataset_name': (d_name := cli_args.dataset_name),
+            'dataset_name': d_name,
             'relative_labels': cli_args.relative_labels,
             'test_size': cli_args.test_size,
             'voc_conf': cli_args.voc_conf,
-            'augmentation': bool((preset := cli_args.augmentation_preset)),
+            'augmentation': bool(preset),
             'sequences': AUGMENTATION_PRESETS.get(preset),
             'aug_workers': cli_args.workers,
             'aug_batch_size': cli_args.process_batch_size,

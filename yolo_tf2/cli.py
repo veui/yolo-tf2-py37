@@ -17,13 +17,14 @@ def execute():
         'evaluate': ('EVALUATION', EVALUATION, evaluate),
         'detect': ('DETECTION', DETECTION, detect),
     }
-    if (total := len(cli_args := sys.argv)) == 1:
+    if len(sys.argv) == 1:
         display_commands()
         return
-    if (command := cli_args[1]) in valid_commands and total == 2:
+    command = cli_args[1]
+    if command in valid_commands and total == 2:
         display_section(valid_commands[command][0])
         return
-    if (help_flags := any(('-h' in cli_args, '--help' in cli_args))) and total == 2:
+    if any(('-h' in cli_args, '--help' in cli_args)) and total == 2:
         display_commands(True)
         return
     if total == 3 and command in valid_commands and help_flags:
