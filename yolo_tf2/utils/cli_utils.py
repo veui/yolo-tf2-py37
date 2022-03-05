@@ -116,12 +116,12 @@ def train(parser):
         None
     """
     cli_args = add_all_args(parser, TRAINING)
+    preset = cli_args.augmentation_preset
     if not cli_args.train_tfrecord and not cli_args.valid_tfrecord:
         assert (
             cli_args.relative_labels or cli_args.xml_labels_folder
         ), 'No labels provided: specify --relative-labels or --xml-labels-folder'
     if cli_args.augmentation_preset:
-        preset = cli_args.augmentation_preset
         assert (
             preset
         ) in AUGMENTATION_PRESETS, f'Invalid augmentation preset {preset}'
