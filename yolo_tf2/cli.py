@@ -20,11 +20,16 @@ def execute():
     if len(sys.argv) == 1:
         display_commands()
         return
+
+    cli_args = sys.argv
+    total = len(cli_args)
     command = cli_args[1]
+    help_flags = any(('-h' in cli_args, '--help' in cli_args))
+
     if command in valid_commands and total == 2:
         display_section(valid_commands[command][0])
         return
-    if any(('-h' in cli_args, '--help' in cli_args)) and total == 2:
+    if help_flags and total == 2:
         display_commands(True)
         return
     if total == 3 and command in valid_commands and help_flags:
