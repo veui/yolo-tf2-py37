@@ -3,7 +3,7 @@ imgaug==0.4.0
 # lxml==4.7.1
 # matplotlib==3.5.1
 # numpy==1.22.2
-opencv-python-headless==4.5.2.52
+opencv-python-headless==4.5.5.62
 # pandas==1.4.0
 # seaborn==0.11.2
 # setuptools==60.7.1
