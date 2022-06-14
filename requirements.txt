@@ -8,7 +8,7 @@ opencv-python-headless==4.5.2.52
 # seaborn==0.11.2
 # setuptools==60.7.1
 # tensorflow==2.8.0
-tensorflow_addons==0.15.0
+tensorflow_addons==0.17.1
 imagecorruptions==1.1.2
 # configparser~=5.2.0
 # scipy==1.7.3
