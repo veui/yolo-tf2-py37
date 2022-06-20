@@ -12,6 +12,6 @@ tensorflow_addons==0.15.0
 imagecorruptions==1.1.2
 # configparser~=5.2.0
 # scipy==1.7.3
-PyQt5==5.15.6
+PyQt5==5.15.7
 tabulate==0.8.9
 # ipykernel==6.8.0
